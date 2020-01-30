@@ -1,0 +1,8 @@
+<div fxLayout="column" fxLayoutAlign="end stretch" fxLayoutGap="20px">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <app-recipe-one *ngFor="let recipeEl of recipes"
+    [recipe]="recipeEl"
+    (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-one>
+    <p class="info-text mat-body-1" *ngIf="recipes.length <= 0 && !isLoading">No recipe added yet!</p>
+</div>
+

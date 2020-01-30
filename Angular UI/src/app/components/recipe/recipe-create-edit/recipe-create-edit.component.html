@@ -1,0 +1,91 @@
+<div fxLayout="column" fxLayoutAlign="end stretch" fxLayoutGap="20px">
+    <div class="mat-card mat-card-request mat-elevation-z6">
+        <h3>Recipe Form</h3>
+    </div>
+
+    
+    <div class="mat-card mat-card-request mat-elevation-z6" fxLayout="column wrap"
+        fxLayoutAlign="start stretch">
+        <div>
+            <h3>Create Recipe </h3><span (click)="reset()" mat-tool-tip="Reset All fileds"></span>
+        </div>
+        <hr>
+          <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <form [formGroup]="form" (submit)="createRecipe()" *ngIf="!isLoading">
+             <div fxLayout="row wrap" fxLayoutGap="50px">
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Title</mat-label>
+                        <input matInput type="text" 
+                        placeholder="Fill the Recipe title"
+                        formControlName="recipeTitle"/>
+                       <mat-error *ngIf="form.get.invalid">Please enter a recipe title</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Description*: (Limit 255 Max)</mat-label>
+                        <input matInput type="text"  
+                        placeholder="Fill the Recipe Description"
+                        formControlName="recipeDescription">
+                        <mat-error *ngIf="form.get.invalid">Please enter a recipe description title</mat-error>
+                    </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="50px">
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Recipe Incredients*</mat-label>
+                        <input matInput type="text" 
+                        placeholder="Fill the Recipe Incredients"
+                        formControlName="recipeIncredients">
+                       <mat-error *ngIf="form.get.invalid">Please enter a recipe Incredients</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Recipe Cooking Methods*</mat-label>
+                        <input matInput type="text"  
+                        placeholder="Fill the Recipe Cooking Method"
+                        formControlName="recipeCookingMethod">
+                        <mat-error *ngIf="form.get.invalid">Please enter a recipe description title</mat-error>
+                    </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="50px">
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Type of the food Vegeterian or Non  Vegeterian*</mat-label>
+                        <input matInput type="text" 
+                        placeholder="Fill the Recipe Incredients"
+                        formControlName="vegitarian_non_vegiterian">
+                       <mat-error *ngIf="form.get.invalid">Please enter a recipe wheter is vegitarian_non_vegiterian </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column wrap" fxFlex>
+                    <mat-form-field>
+                        <mat-label>Number_of_sutiable of People*</mat-label>
+                        <input matInput type="text"  
+                        placeholder="Fill the Number_of_sutiable of People"
+                        formControlName="number_of_sutiable">
+                        <mat-error *ngIf="form.get.invalid">Please enter a Number_of_sutiable of People</mat-error>
+                    </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="50px">
+                <div fxLayout="column wrap" fxFlex>
+                    <div>
+                        <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+                        <input type="file" #filePicker (change)="onImagePicked($event)">
+                      </div>
+                      <div class="imagePreview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+                        <img [src]="imagePreview" >
+                      </div>
+                </div>
+              </div><br>
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <button mat-raised-button color="accent" type="submit">Save Recipe</button>
+             </div>
+        </form>
+    </div>
+</div>

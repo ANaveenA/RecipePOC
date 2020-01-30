@@ -1,0 +1,163 @@
+@import '../../node_modules/@angular/material/theming';
+@import './fonts.scss';
+@import './palettes.scss';
+@import './material-design-overrides.scss';
+@import '../app/components/recipe/recipe.component';
+@import '../app/app.component';
+
+
+@include mat-core();
+
+$recipe-primary: mat-palette($dark-blue-palette);
+$recipe-accent: mat-palette($orange-palette);
+$recipe-warn: mat-palette($rose-red-palette);
+
+$recipe-theme: mat-light-theme($recipe-primary, $recipe-accent, $recipe-warn);
+
+@mixin component-themes($recipe-theme) {
+ 
+  
+}
+
+@include angular-material-theme($recipe-theme);
+@include component-themes($recipe-theme);
+
+
+
+.fa {
+  color: mat-color(map-get($recipe-theme, accent));
+  cursor: pointer;
+}
+
+.request-box {
+  color: mat-color(map-get($recipe-theme, primary), 1000);
+  background-color: mat-color(map-get($recipe-theme, primary), 50);
+}
+
+.headers-container {
+  .header-item span:nth-child(1) {
+    color: mat-color(map-get($recipe-theme, primary), 1000);
+  }
+}
+
+.clearfix {
+  display: block;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+
+.area-header {
+  .main-title {
+    text-transform: capitalize;
+  }
+}
+
+/* ------- FORMS --------- */
+$label-color: rgba(0, 0, 0, 0.58);
+
+.form-group {
+  border-left: 1px solid map-get($dark-grey-palette, 100);
+  margin: 15px 0px 0px;
+  padding-left: 10px;
+
+  .form-group-title, .multiple-fields-title {
+    text-transform: capitalize;
+
+    .fa {
+      margin-left: 10px;
+      font-size: 1.2em;
+    }
+  }
+
+
+  mat-form-field {
+    margin: 0px 5px;
+  }
+
+  .form-group {
+    padding-left: 28px;
+
+    .form-group-title {
+      font-size: 0.9em;
+      margin-left: -20px;
+    }
+  }
+}
+
+
+
+.form-field {
+  padding-left: 5px;
+  margin-bottom: 5px;
+
+  .form-field-label {
+    font-size: 1.1em;
+    color: $label-color;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.no-border {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+
+.form-group.no-border {
+  border-left: 0px;
+}
+
+/* ----------------------- */
+
+/* ------ FLOW DESCRIPTION -----*/
+.mat-card.info {
+  background-color: mat-color(map-get($recipe-theme, primary), 50);
+  color: mat-color(map-get($recipe-theme, primary), 1000);
+ 
+}
+
+
+
+.mat-card h3 {
+  color: mat-color(map-get($recipe-theme, primary), 400);
+}
+
+mat-tab-group{
+   position: relative;
+}
+.mat-expansion-panel.info {
+  background-color: mat-color(map-get($recipe-theme, primary), 50);
+  color: mat-color(map-get($recipe-theme, primary), 700);
+}
+/* -----------------------------*/
+
+mat-table mat-header-row {
+  text-transform: uppercase;
+}
+
+button.mat-accent {
+  .fa {
+    color: mat-contrast(map-get($recipe-theme, accent), 500);
+  }
+}
+
+pre {
+  margin: 0px 0px;
+}

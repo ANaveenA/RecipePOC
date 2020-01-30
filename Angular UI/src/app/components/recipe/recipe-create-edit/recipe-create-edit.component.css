@@ -1,0 +1,19 @@
+.container{
+    height:100% !important;
+}
+input[type="file"] {
+    visibility: hidden;
+  }
+  
+  .imagePreview {
+    height: 5rem;
+    margin: 1rem 0;
+  }
+  
+  .imagePreview img {
+    height: 100%;
+  }
+  mat-spinner {
+    margin: auto;
+    color:#009286;
+  }

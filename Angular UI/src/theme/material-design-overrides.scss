@@ -1,0 +1,49 @@
+$form-field-default: rgba(0, 0, 0, 0.54);
+$form-field-default-underline: rgba(0, 0, 0, 0.42);
+
+// not touched fields should not have validations activated
+.flow-stepper {
+  .mat-form-field.ng-untouched .mat-select.mat-select-invalid .mat-select-arrow {
+    color: $form-field-default;
+  }
+
+  .mat-form-field-invalid.ng-untouched .mat-form-field-label {
+    color: $form-field-default;
+  }
+
+  .mat-form-field-invalid.ng-untouched .mat-form-field-underline {
+    background-color: $form-field-default-underline;
+
+    .mat-form-field-ripple {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform-origin: 50%;
+      transform: scaleX(.5);
+      visibility: hidden;
+      opacity: 0;
+      transition: background-color .3s cubic-bezier(.55, 0, .55, .2);
+    }
+  }
+}
+
+// enlaring size of the steps
+.flow-stepper {
+  .mat-step-icon, .mat-step-icon-not-touched {
+    height: 34px;
+    width: 34px;
+  }
+
+  .mat-step-icon, .mat-step-icon-not-touched, .mat-step-text-label {
+    font-size: 1.3em;
+  }
+
+  .mat-horizontal-stepper-header-container {
+    margin: 0px 20px;
+  }
+}
+.mat-spinner{
+  color:#009286;
+}

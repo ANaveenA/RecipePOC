@@ -1,0 +1,38 @@
+
+      <div fxLayout="column" >
+        <mat-card class="card-picture">
+            <mat-card-header fxLayout.gt-xs="row" fxLayout.xs="column">
+                <img  mat-card-avatar class="smallimage" [src]="'data:image/jpg;base64,' + recipe.imagepath"  
+                onError="this.src='./errorImage2.jpg'">
+                <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                    <span>{{recipe.recipeTitle}}</span>
+					<div fxLayoutAlign="end stretch">
+                    <mat-icon [routerLink]="['/edit', recipe.id]">mode_edit</mat-icon>
+                    <mat-icon (click)="onDelete(recipe.id)">delete</mat-icon>
+					</div>
+                </mat-card-title>
+            </mat-card-header>
+          <img  class="bigimage" [src]="'data:image/jpg;base64,' + recipe.imagepath"
+          onError="this.src='./errorImage2.jpg'">
+         <mat-card-content>
+            <p >
+              <b>Description:</b>{{recipe.recipeDescription}}
+            </p>
+            <p >
+              <b>Incredients:</b>{{recipe.recipeIncredients}}
+            </p>
+
+            <p>
+              <b>Steps to proceed:</b>{{recipe.recipeCookingMethod}}
+            </p>
+			<p>
+              <b>Recipe Suits:</b>{{recipe.number_of_sutiable}}
+            </p>
+            <p >
+              <b>Vegeterian or Non Vegeterian:</b>{{recipe.vegitarian_non_vegiterian}}
+            </p>
+        </mat-card-content>
+        </mat-card>
+      </div>
+
+    

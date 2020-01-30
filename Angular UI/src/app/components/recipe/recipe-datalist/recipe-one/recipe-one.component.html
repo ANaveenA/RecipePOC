@@ -1,0 +1,33 @@
+<div  >
+  <div fxLayout="column wrap" fxLayout.xs="column wrap" fxLayoutGap="4%" 
+       fxfelx="100%" fxFlex.gt-sm="100%">
+    <mat-accordion (click)="onSelected()">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+		   <img  mat-card-avatar class="smallimage" [src]="'data:image/jpg;base64,' + recipe.imagepath"  
+                onError="this.src='./errorImage2.jpg'">
+            <p name="id" id="id">{{recipe.id}}.{{recipe.recipeTitle}}<p>
+          </mat-panel-title>
+          <mat-panel-description>
+            <p name="description" id="description">{{recipe.recipeDescription}}</p>
+          </mat-panel-description>
+          <mat-panel-description>
+              <p name="date" id="date">{{recipe.recipeCreatedAt}}</p>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{recipe.recipeTitle}}</p>
+        <p>{{recipe.recipeIncredients}}</p>
+        <p>{{recipe.recipeCookingMethod}}</p>
+        <p>{{recipe.recipeCreatedAt}}</p>
+        <mat-action-row>
+          <a mat-button color="primary" [routerLink]="['/edit', recipe.id]">EDIT</a>
+          <button mat-button color="warn" (click)="onDelete(recipe.id)">DELETE</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    
+  </div>
+
+</div>

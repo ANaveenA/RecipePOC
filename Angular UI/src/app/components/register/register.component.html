@@ -1,0 +1,58 @@
+
+<br>
+<br>
+<!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+<mat-card class="mat-card mat-card-request mat-elevation-z6">
+	
+	<mat-card-title class="mat-card mat-card-request mat-elevation-z6 center">
+		<h6>Registeration Form</h6>
+	</mat-card-title>
+	<mat-card-content>
+		
+		<form  [formGroup]="registerform" (submit)="onRegister()" >
+				
+			<p>
+              <mat-form-field appearance="fill">
+					<mat-label>Fill Full Name</mat-label>
+					<input type="text" 
+					matInput 
+					formControlName="name"
+					placeholder="Your Fullname"/>
+					<mat-error *ngIf="registerform.get('name').invalid">Please enter a full name.</mat-error>
+				</mat-form-field>
+			</p>
+			<p>
+              <mat-form-field appearance="fill">
+					<mat-label>Fill Username</mat-label>
+					<input type="text" matInput 
+					formControlName="username"
+					placeholder="Your Username"/>
+					<mat-error *ngIf="registerform.get('username').invalid">Please enter your username.</mat-error>
+					</mat-form-field>
+			</p>
+           <p>
+                <mat-form-field appearance="fill">
+					<mat-label>Fill Password</mat-label>
+					<input type="password" matInput
+					  formControlName="password"
+					  placeholder="Your Password">
+					  <mat-error *ngIf="registerform.get('password').invalid">Please enter your password.</mat-error>
+				</mat-form-field>
+			</p>
+				<div *ngIf="store" class="mat-card mat-card-request mat-elevation-z6 info">
+					<p  class="store">
+						{{ store }}
+					</p>
+				</div>
+				<div *ngIf="error" class="mat-card mat-card-request mat-elevation-z6 info">
+					<p  class="error">
+						{{ error }}
+					</p>
+				</div>
+			<div class="button">
+				<button mat-raised-button type="submit" class="mat-primary">Sign Up</button><span><a mat-button
+					routerLink="/login">Login</a></span> 
+			</div>
+
+		</form>
+	</mat-card-content>

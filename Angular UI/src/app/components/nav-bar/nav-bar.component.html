@@ -1,0 +1,23 @@
+<div fxLayout="column wrap"
+fxLayoutAlign="start stretch"
+fxLayoutGap="50px">
+<mat-toolbar class="mat-primary mat-elevation-z6 app-navbar" >
+		<h3 [style.color]="'white'" routerLink="/" routerLinkActive="mat-accent">Recipe Portal</h3>
+		<span class="example-spacer"></span>
+		<span class="spacer"></span>
+		<ul>
+		  <li >
+			<span *ngIf="!userIsAuthenticated">
+			<a  mat-button routerLink="/login">Login</a>
+			</span>
+			<a *ngIf="userIsAuthenticated" mat-button>Welcome {{username}} !!</a>
+			<span *ngIf="!userIsAuthenticated">
+			<a  mat-button routerLink="/register">SignUp</a>
+			</span>
+			<a *ngIf="userIsAuthenticated" mat-button  routerLink="/create"  >New Recipe</a>
+		    <span ><a  mat-button routerLink="/recipe">View Recipe List</a></span>
+			<a *ngIf="userIsAuthenticated" mat-button (click)="onLogout()">LogOut</a>
+		</li>
+		</ul>
+	</mat-toolbar>
+</div>
