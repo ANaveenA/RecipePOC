@@ -17,6 +17,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<!--Dependency version-->
+		<junit-jupiter-engine_version>5.3.2</junit-jupiter-engine_version>
 	</properties>
 
 	<dependencies>
@@ -78,20 +80,6 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-	 
-	    
-	    <dependency>
-         <groupId>io.springfox</groupId>
-         <artifactId>springfox-swagger2</artifactId>
-         <version>2.9.2</version>
-        </dependency>
-       
-       <dependency>
-         <groupId>io.springfox</groupId>
-         <artifactId>springfox-swagger-ui</artifactId>
-         <version>2.9.2</version>
-      </dependency>
-	    
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -107,8 +95,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<!-- Removed Junit-4 dependency -->
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
+		<!-- Junit 5 support -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit-jupiter-engine_version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
     <build>
 		<plugins>
